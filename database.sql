@@ -1,0 +1,22 @@
+CREATE DATABASE IF NOT EXISTS bd_eshop DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE bd_eshop;
+
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS produits (
+    code VARCHAR(50) PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    price DECIMAL(10,2) NOT NULL DEFAULT 0.00,
+    category VARCHAR(100) NULL,
+    stock INT NOT NULL DEFAULT 0,
+    image VARCHAR(255) NOT NULL DEFAULT 'product.jpg',
+    on_sale BOOLEAN NOT NULL DEFAULT FALSE,
+    old_price DECIMAL(10,2) NULL
+);
+
+
+INSERT INTO users (username, password) VALUES ('admin', '21232f297a57a5a743894a0e4a801fc3');
